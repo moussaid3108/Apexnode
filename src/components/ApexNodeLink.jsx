@@ -1,16 +1,10 @@
 import { useState, useEffect } from "react";
 
 const apps = [
-  { id:1,  name:"PrivateTalk",      tag:"VOIX",       icon:"📞", color:"#7C3AED", status:"live" },
-  { id:2,  name:"Voice Shield",     tag:"IA",         icon:"🛡️", color:"#06B6D4", status:"beta" },
-  { id:3,  name:"Shadow Browser",   tag:"PRIVACY",    icon:"👁️", color:"#8B5CF6", status:"beta" },
-  { id:4,  name:"Lead Qualifier",   tag:"B2B",        icon:"📊", color:"#10B981", status:"soon" },
-  { id:5,  name:"BetVision AI",     tag:"IA",         icon:"⚡", color:"#F59E0B", status:"beta" },
-  { id:6,  name:"Digital Evidence", tag:"BLOCKCHAIN", icon:"🔐", color:"#06B6D4", status:"live" },
-  { id:7,  name:"Ghost Cinema",     tag:"CLUB",       icon:"🎬", color:"#EC4899", status:"soon" },
-  { id:8,  name:"IncoInfo",         tag:"OSINT",      icon:"🔍", color:"#8B5CF6", status:"soon" },
-  { id:9,  name:"Global Health",    tag:"SANTÉ",      icon:"🌍", color:"#10B981", status:"soon" },
-  { id:10, name:"Crédits Sellix",   tag:"WALLET",     icon:"💳", color:"#F59E0B", status:"soon", highlight:true },
+  { id:1, name:"PrivateTalk",    tag:"VOIX",    icon:"📞", color:"#7C3AED", status:"live" },
+  { id:2, name:"Shadow Browser", tag:"PRIVACY", icon:"👁️", color:"#8B5CF6", status:"beta" },
+  { id:3, name:"BetVision AI",   tag:"IA",      icon:"⚡", color:"#F59E0B", status:"beta" },
+  { id:4, name:"IncoInfo",       tag:"OSINT",   icon:"🔍", color:"#8B5CF6", status:"soon" },
 ];
 
 const statusLabel = {
