@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 
 const apps = [
   { id:1,  name:"PrivateTalk",      tag:"VOIX",       icon:"📞", color:"#7C3AED", status:"live" },
@@ -27,7 +26,7 @@ const CSS = `
   @keyframes scanline { 0%{transform:translateY(-100%)} 100%{transform:translateY(100vh)} }
   @keyframes glitch { 0%,90%,100%{clip-path:none;transform:none} 91%{clip-path:inset(20% 0 60% 0);transform:translate(-4px,0)} 93%{clip-path:inset(60% 0 10% 0);transform:translate(4px,0)} }
   @keyframes fadeSlideUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
-  .app-card { transition:all 0.25s cubic-bezier(0.4,0,0.2,1); cursor:pointer; text-decoration:none; display:block; }
+  .app-card { transition:all 0.25s cubic-bezier(0.4,0,0.2,1); text-decoration:none; display:block; }
   .app-card:hover { transform:translateX(6px) scale(1.01); }
   .grid-bg { background-image:linear-gradient(rgba(124,58,237,0.06) 1px,transparent 1px),linear-gradient(90deg,rgba(124,58,237,0.06) 1px,transparent 1px); background-size:40px 40px; }
 `;
@@ -35,7 +34,6 @@ const CSS = `
 export default function ApexNodeLink() {
   const [hovered, setHovered] = useState(null);
   const [loaded, setLoaded] = useState(false);
-  const navigate = useNavigate();
 
   useEffect(() => { setTimeout(() => setLoaded(true), 100); }, []);
 
@@ -90,7 +88,6 @@ export default function ApexNodeLink() {
                 <div key={app.id} className="app-card"
                   onMouseEnter={() => setHovered(app.id)}
                   onMouseLeave={() => setHovered(null)}
-                  onClick={() => navigate("/dashboard")}
                   style={{ opacity:loaded?1:0, animation:loaded?`fadeSlideUp 0.5s ease forwards ${0.05*i+0.3}s`:"none",
                     background: isHovered ? `rgba(${parseInt(app.color.slice(1,3),16)},${parseInt(app.color.slice(3,5),16)},${parseInt(app.color.slice(5,7),16)},0.12)` : "rgba(255,255,255,0.03)",
                     border:`1px solid ${isHovered ? app.color+"66" : app.highlight ? "rgba(245,158,11,0.3)" : "rgba(124,58,237,0.15)"}`,
@@ -114,13 +111,6 @@ export default function ApexNodeLink() {
                 </div>
               );
             })}
-          </div>
-
-          {/* Link to dashboard */}
-          <div style={{ marginTop:32, textAlign:"center" }}>
-            <button onClick={() => navigate("/dashboard")} style={{ fontFamily:"'Space Mono',monospace", fontSize:10, color:"rgba(124,58,237,0.5)", background:"none", border:"1px solid rgba(124,58,237,0.2)", borderRadius:8, padding:"8px 20px", cursor:"pointer", letterSpacing:"0.2em", textTransform:"uppercase", transition:"all 0.2s" }}>
-              → Dashboard
-            </button>
           </div>
 
           <div style={{ marginTop:40, textAlign:"center" }}>
