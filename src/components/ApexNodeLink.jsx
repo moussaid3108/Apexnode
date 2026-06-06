@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
 
 const apps = [
-  { id:1, name:"PrivateTalk",  tag:"VOIX",    icon:"📞", color:"#7C3AED", status:"live" },
-  { id:2, name:"BetVision AI", tag:"IA",      icon:"⚡", color:"#F59E0B", status:"beta" },
-  { id:3, name:"IncoInfo",     tag:"OSINT",   icon:"🔍", color:"#8B5CF6", status:"soon" },
-  { id:4, name:"VisionX",      tag:"FINANCE", icon:"📈", color:"#10B981", status:"soon" },
-  { id:5, name:"SARI",         tag:"IA",      icon:"🤖", color:"#06B6D4", status:"soon" },
+  { id:1, name:"PrivateTalk",  tag:"VOIX",    color:"#7C3AED", desc:"Appels anonymes avec numéros jetables. Zéro log, zéro trace." },
+  { id:2, name:"BetVision AI", tag:"IA",      color:"#F59E0B", desc:"Pronostics sportifs générés par algorithme IA. Maximise tes gains, minimise le hasard." },
+  { id:3, name:"IncoInfo",     tag:"OSINT",   color:"#8B5CF6", desc:"Détecte les incohérences dans la presse mondiale. L'info vérifiée, en temps réel." },
+  { id:4, name:"VisionX",      tag:"FINANCE", color:"#10B981", desc:"Scrute les marchés financiers 24h/24. Signaux d'entrée et de sortie générés par IA." },
+  { id:5, name:"SARI",         tag:"IA",      color:"#06B6D4", desc:"Réseau social conçu pour les intelligences artificielles. Connexion, échange, évolution." },
 ];
 
 
@@ -83,14 +83,12 @@ export default function ApexNodeLink() {
                     borderRadius:12, padding:"14px 16px",
                     boxShadow: isHovered ? `0 0 24px ${app.color}22` : "none" }}>
                   <div style={{ display:"flex", alignItems:"center", gap:14 }}>
-                    <div style={{ width:42, height:42, borderRadius:10, background:`linear-gradient(135deg,${app.color}33,${app.color}11)`, border:`1px solid ${app.color}44`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:20, flexShrink:0 }}>
-                      {app.icon}
-                    </div>
                     <div style={{ flex:1, minWidth:0 }}>
-                      <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:2 }}>
+                      <div style={{ display:"flex", alignItems:"center", gap:8, marginBottom:6 }}>
                         <span style={{ fontFamily:"'Rajdhani',sans-serif", fontSize:16, fontWeight:700, color:isHovered?"#E0D7FF":"#C4B5FD", letterSpacing:"0.05em", textTransform:"uppercase" }}>{app.name}</span>
                         <span style={{ fontFamily:"'Space Mono',monospace", fontSize:8, color:app.color, border:`1px solid ${app.color}55`, borderRadius:4, padding:"1px 5px", letterSpacing:"0.1em" }}>{app.tag}</span>
                       </div>
+                      <p style={{ fontFamily:"'Space Mono',monospace", fontSize:10, color:"rgba(167,139,250,0.45)", lineHeight:1.6, margin:0 }}>{app.desc}</p>
                     </div>
                     <div style={{ display:"flex", alignItems:"center", flexShrink:0 }}>
                       <span style={{ color:isHovered?app.color:"rgba(124,58,237,0.4)", fontSize:14, transition:"all 0.2s", transform:isHovered?"translateX(4px)":"none" }}>→</span>
