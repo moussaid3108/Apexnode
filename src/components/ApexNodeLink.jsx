@@ -8,11 +8,6 @@ const apps = [
   { id:5, name:"SARI",         tag:"IA",      icon:"🤖", color:"#06B6D4", status:"soon" },
 ];
 
-const statusLabel = {
-  live: { text:"LIVE",     bg:"#10B981" },
-  beta: { text:"BÊTA",     bg:"#06B6D4" },
-  soon: { text:"BIENTÔT",  bg:"#6B7280" },
-};
 
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Space+Mono:wght@400;700&family=Exo+2:wght@300;400;600;800&display=swap');
@@ -77,7 +72,6 @@ export default function ApexNodeLink() {
           {/* Cards */}
           <div style={{ display:"flex", flexDirection:"column", gap:10 }}>
             {apps.map((app, i) => {
-              const st = statusLabel[app.status];
               const isHovered = hovered === app.id;
               return (
                 <div key={app.id} className="app-card"
@@ -98,8 +92,7 @@ export default function ApexNodeLink() {
                         <span style={{ fontFamily:"'Space Mono',monospace", fontSize:8, color:app.color, border:`1px solid ${app.color}55`, borderRadius:4, padding:"1px 5px", letterSpacing:"0.1em" }}>{app.tag}</span>
                       </div>
                     </div>
-                    <div style={{ display:"flex", flexDirection:"column", alignItems:"flex-end", gap:4, flexShrink:0 }}>
-                      <span style={{ fontFamily:"'Space Mono',monospace", fontSize:8, fontWeight:700, color:st.bg, background:st.bg+"22", border:`1px solid ${st.bg}44`, borderRadius:4, padding:"2px 6px", letterSpacing:"0.1em" }}>{st.text}</span>
+                    <div style={{ display:"flex", alignItems:"center", flexShrink:0 }}>
                       <span style={{ color:isHovered?app.color:"rgba(124,58,237,0.4)", fontSize:14, transition:"all 0.2s", transform:isHovered?"translateX(4px)":"none" }}>→</span>
                     </div>
                   </div>
