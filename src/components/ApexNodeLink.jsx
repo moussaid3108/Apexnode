@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 
 const apps = [
-  { id:1, name:"PrivateTalk",    tag:"VOIX",    icon:"📞", color:"#7C3AED", status:"live" },
-  { id:2, name:"Shadow Browser", tag:"PRIVACY", icon:"👁️", color:"#8B5CF6", status:"beta" },
-  { id:3, name:"BetVision AI",   tag:"IA",      icon:"⚡", color:"#F59E0B", status:"beta" },
-  { id:4, name:"IncoInfo",       tag:"OSINT",   icon:"🔍", color:"#8B5CF6", status:"soon" },
+  { id:1, name:"PrivateTalk",  tag:"VOIX",    icon:"📞", color:"#7C3AED", status:"live" },
+  { id:2, name:"BetVision AI", tag:"IA",      icon:"⚡", color:"#F59E0B", status:"beta" },
+  { id:3, name:"IncoInfo",     tag:"OSINT",   icon:"🔍", color:"#8B5CF6", status:"soon" },
+  { id:4, name:"VisionX",      tag:"FINANCE", icon:"📈", color:"#10B981", status:"soon" },
+  { id:5, name:"SARI",         tag:"IA",      icon:"🤖", color:"#06B6D4", status:"soon" },
 ];
 
 const statusLabel = {
