@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const apps = [
-  { id:1, name:"PrivateTalk",  tag:"VOIX",    color:"#7C3AED", desc:"Appels anonymes avec numéros jetables. Zéro log, zéro trace." },
+  { id:1, name:"PrivateTalk",  tag:"VOIX",    color:"#7C3AED", desc:"Appels privés sans numéro de téléphone. Un simple identifiant suffit pour communiquer." },
   { id:2, name:"BetVision AI", tag:"IA",      color:"#F59E0B", desc:"Pronostics sportifs générés par algorithme IA. Maximise tes gains, minimise le hasard." },
   { id:3, name:"IncoInfo",     tag:"OSINT",   color:"#8B5CF6", desc:"Détecte les incohérences dans la presse mondiale. L'info vérifiée, en temps réel." },
   { id:4, name:"VisionX",      tag:"FINANCE", color:"#10B981", desc:"Scrute les marchés financiers 24h/24. Signaux d'entrée et de sortie générés par IA." },
