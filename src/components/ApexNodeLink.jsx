@@ -266,7 +266,6 @@ export default function ApexNodeLink() {
       <main>
         {apps.map(app => (
           <a key={app.name} className="app" href="#">
-            <div className="icon">{app.icon}</div>
             <div className="body">
               <span className="name">{app.name}</span>
               <span className={`chip${app.green ? ' green' : ''}`}>{app.tag}</span>
