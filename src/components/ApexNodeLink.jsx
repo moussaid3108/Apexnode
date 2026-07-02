@@ -9,7 +9,6 @@ const apps = [
   { name:"SARI",         tag:"IA",      icon:"🤖", status:"soon", green:true  },
 ];
 
-const statusLabel = { live:"LIVE", beta:"BÊTA", soon:"BIENTÔT" };
 
 const CSS = `
 :root{
@@ -52,11 +51,9 @@ main{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:44px 20px
 .chip{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;padding:4px 9px;border:1px solid var(--edge);border-radius:8px;color:var(--violet);text-transform:uppercase}
 .chip.green{color:var(--live);border-color:rgba(61,220,151,.4)}
 .right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
-.status{font-family:'Space Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.2em;padding:6px 14px;border-radius:10px;border:1px solid}
-.status.live{color:var(--live);border-color:rgba(61,220,151,.5);background:rgba(61,220,151,.08)}
-.status.beta{color:var(--beta);border-color:rgba(90,200,250,.5);background:rgba(90,200,250,.07)}
-.status.soon{color:var(--ink-dim);border-color:rgba(158,147,201,.3)}
 .arrow{color:var(--violet);font-size:18px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.share-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(139,92,246,.35);background:rgba(139,92,246,.08);cursor:pointer;flex-shrink:0;animation:spin 5s linear infinite}
 footer{position:relative;z-index:1;text-align:center;padding:26px 20px 44px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;color:var(--ink-dim);text-transform:uppercase}
 footer b{color:var(--violet)}
 @media(prefers-reduced-motion:reduce){#scanline{display:none}.app,.app:hover{transition:none;transform:none}}
@@ -271,8 +268,15 @@ export default function ApexNodeLink() {
               <span className={`chip${app.green ? ' green' : ''}`}>{app.tag}</span>
             </div>
             <div className="right">
-              <span className={`status ${app.status}`}>{statusLabel[app.status]}</span>
-              <span className="arrow">→</span>
+              <div className="share-btn">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                  <circle cx="18" cy="5"  r="2.5" stroke="#8B5CF6" strokeWidth="1.5"/>
+                  <circle cx="18" cy="19" r="2.5" stroke="#8B5CF6" strokeWidth="1.5"/>
+                  <circle cx="6"  cy="12" r="2.5" stroke="#B7A8F5" strokeWidth="1.5"/>
+                  <line x1="8.4"  y1="10.8" x2="15.6" y2="6.2"  stroke="#8B5CF6" strokeWidth="1.2" strokeLinecap="round"/>
+                  <line x1="8.4"  y1="13.2" x2="15.6" y2="17.8" stroke="#8B5CF6" strokeWidth="1.2" strokeLinecap="round"/>
+                </svg>
+              </div>
             </div>
           </a>
         ))}
