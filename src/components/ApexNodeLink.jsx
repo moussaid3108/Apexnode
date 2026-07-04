@@ -31,13 +31,13 @@ body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-seri
   box-shadow:0 0 18px 3px rgba(139,92,246,.55),0 0 70px 12px rgba(79,156,249,.22);
 }
 #scanline::after{content:'';position:absolute;left:0;right:0;top:2px;height:90px;background:linear-gradient(to bottom,rgba(139,92,246,.16),transparent)}
-header{position:relative;z-index:1;text-align:center;padding:clamp(34px,7vh,70px) 0 26px}
+header{position:relative;z-index:1;text-align:center;padding:24px 0 16px}
 .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.55em;color:var(--lav);text-indent:.55em}
 h1{margin-top:10px;font-weight:700;font-size:clamp(42px,11.5vw,88px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
 .hub{margin-top:8px;font-weight:500;font-size:clamp(20px,5vw,34px);letter-spacing:.6em;text-indent:.6em;color:var(--violet);text-shadow:0 2px 12px rgba(13,10,26,.9)}
 .tagline{margin:22px auto 0;max-width:640px;padding:0 24px;font-family:'Space Mono',monospace;font-size:clamp(10px,2.8vw,13px);letter-spacing:.3em;line-height:2;color:var(--ink-dim);text-transform:uppercase;text-shadow:0 1px 8px rgba(13,10,26,.95)}
-.divider{margin:30px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
-main{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:40px 20px 30px;display:flex;flex-direction:column;gap:18px}
+.divider{margin:18px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
+main{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:20px 20px 30px;display:flex;flex-direction:column;gap:14px}
 .app{display:flex;align-items:center;gap:18px;padding:22px;background:var(--bg-card);border:1px solid var(--edge);border-radius:18px;backdrop-filter:blur(10px);text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
 .app:active{transform:scale(.99)}
 .app:hover{border-color:rgba(139,92,246,.6);transform:translateY(-2px)}
@@ -153,21 +153,10 @@ export default function ApexNodeLink() {
     const starsMid  = makeStars(150, 30, 0.05, 0xB7A8F5, 0.6);
     const starsNear = makeStars(60,  22, 0.08, 0x5AC8FA, 0.55);
 
-    const h1El = document.querySelector('h1');
-    function alignCore() {
-      if (!h1El) return;
-      const r = h1El.getBoundingClientRect();
-      const cy = r.top + r.height * 0.5;
-      const ndcY = -(cy / window.innerHeight) * 2 + 1;
-      const vh = 2 * Math.tan((camera.fov * Math.PI / 180) / 2) * 9;
-      core.position.y = ndcY * vh / 2 + camera.position.y;
-    }
-
     let scrollFrac = 0;
     function onScroll() {
       const max = document.body.scrollHeight - window.innerHeight;
       scrollFrac = max > 0 ? window.scrollY / max : 0;
-      alignCore();
     }
     window.addEventListener('scroll', onScroll, { passive: true });
 
@@ -197,7 +186,7 @@ export default function ApexNodeLink() {
       camera.position.y = -scrollFrac * 3.5;
       camera.position.x = Math.sin(t * 0.15) * 0.3;
       camera.lookAt(0, camera.position.y, 0);
-      alignCore();
+      core.position.y = camera.position.y;
 
       if (!reduced) {
         core.rotation.y += dt * 0.25;
@@ -228,7 +217,6 @@ export default function ApexNodeLink() {
       renderer.render(scene, camera);
     }
 
-    alignCore();
     onScroll();
     animate();
 
@@ -236,7 +224,6 @@ export default function ApexNodeLink() {
       camera.aspect = window.innerWidth / window.innerHeight;
       camera.updateProjectionMatrix();
       renderer.setSize(window.innerWidth, window.innerHeight);
-      alignCore();
     }
     window.addEventListener('resize', onResize);
 
