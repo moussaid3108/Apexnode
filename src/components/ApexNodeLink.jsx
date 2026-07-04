@@ -33,7 +33,7 @@ body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-seri
 #scanline::after{content:'';position:absolute;left:0;right:0;top:2px;height:90px;background:linear-gradient(to bottom,rgba(139,92,246,.16),transparent)}
 header{position:relative;z-index:1;text-align:center;padding:clamp(34px,7vh,70px) 0 26px}
 .eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.55em;color:var(--lav);text-indent:.55em}
-h1{margin-top:10px;font-weight:700;font-size:clamp(52px,14vw,96px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
+h1{margin-top:10px;font-weight:700;font-size:clamp(42px,11.5vw,88px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
 .hub{margin-top:8px;font-weight:500;font-size:clamp(20px,5vw,34px);letter-spacing:.6em;text-indent:.6em;color:var(--violet);text-shadow:0 2px 12px rgba(13,10,26,.9)}
 .tagline{margin:22px auto 0;max-width:640px;padding:0 24px;font-family:'Space Mono',monospace;font-size:clamp(10px,2.8vw,13px);letter-spacing:.3em;line-height:2;color:var(--ink-dim);text-transform:uppercase;text-shadow:0 1px 8px rgba(13,10,26,.95)}
 .divider{margin:30px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
@@ -153,11 +153,11 @@ export default function ApexNodeLink() {
     const starsMid  = makeStars(150, 30, 0.05, 0xB7A8F5, 0.6);
     const starsNear = makeStars(60,  22, 0.08, 0x5AC8FA, 0.55);
 
-    const heroEl = document.querySelector('header');
+    const h1El = document.querySelector('h1');
     function alignCore() {
-      if (!heroEl) return;
-      const r = heroEl.getBoundingClientRect();
-      const cy = r.top + r.height * 0.42;
+      if (!h1El) return;
+      const r = h1El.getBoundingClientRect();
+      const cy = r.top + r.height * 0.5;
       const ndcY = -(cy / window.innerHeight) * 2 + 1;
       const vh = 2 * Math.tan((camera.fov * Math.PI / 180) / 2) * 9;
       core.position.y = ndcY * vh / 2 + camera.position.y;
