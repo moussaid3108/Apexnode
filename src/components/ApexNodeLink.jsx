@@ -23,7 +23,8 @@ const CSS = `
   --scan:rgba(139,92,246,.9);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;overflow-x:hidden;min-height:100vh}
+html,body{height:100%;overflow:hidden}
+body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-serif;display:flex;flex-direction:column;height:100dvh}
 #scene{position:fixed;inset:0;z-index:0;pointer-events:none}
 #scanline{
   position:fixed;left:0;right:0;top:0;height:2px;z-index:6;pointer-events:none;
@@ -31,25 +32,24 @@ body{background:var(--bg);color:var(--ink);font-family:'Space Grotesk',sans-seri
   box-shadow:0 0 18px 3px rgba(139,92,246,.55),0 0 70px 12px rgba(79,156,249,.22);
 }
 #scanline::after{content:'';position:absolute;left:0;right:0;top:2px;height:90px;background:linear-gradient(to bottom,rgba(139,92,246,.16),transparent)}
-header{position:relative;z-index:1;text-align:center;padding:24px 0 16px}
-.eyebrow{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.55em;color:var(--lav);text-indent:.55em}
-h1{margin-top:10px;font-weight:700;font-size:clamp(42px,11.5vw,88px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
-.hub{margin-top:8px;font-weight:500;font-size:clamp(20px,5vw,34px);letter-spacing:.6em;text-indent:.6em;color:var(--violet);text-shadow:0 2px 12px rgba(13,10,26,.9)}
-.tagline{margin:22px auto 0;max-width:640px;padding:0 24px;font-family:'Space Mono',monospace;font-size:clamp(10px,2.8vw,13px);letter-spacing:.3em;line-height:2;color:var(--ink-dim);text-transform:uppercase;text-shadow:0 1px 8px rgba(13,10,26,.95)}
-.divider{margin:18px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
-main{position:relative;z-index:1;max-width:820px;margin:0 auto;padding:20px 20px 30px;display:flex;flex-direction:column;gap:14px}
-.app{display:flex;align-items:center;gap:18px;padding:22px;background:var(--bg-card);border:1px solid var(--edge);border-radius:18px;backdrop-filter:blur(10px);text-decoration:none;color:inherit;position:relative;overflow:hidden;transition:border-color .3s,transform .3s,box-shadow .3s}
+header{position:relative;z-index:1;text-align:center;padding:16px 0 10px;flex:0 0 auto}
+.eyebrow{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.55em;color:var(--lav);text-indent:.55em}
+h1{margin-top:6px;font-weight:700;font-size:clamp(36px,9.5vw,80px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
+.hub{margin-top:4px;font-weight:500;font-size:clamp(16px,4vw,28px);letter-spacing:.6em;text-indent:.6em;color:var(--violet);text-shadow:0 2px 12px rgba(13,10,26,.9)}
+.divider{margin:10px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
+main{position:relative;z-index:1;width:100%;max-width:820px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;gap:8px;flex:1;justify-content:center}
+.app{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--edge);border-radius:16px;backdrop-filter:blur(10px);text-decoration:none;color:inherit;transition:border-color .3s,transform .3s,box-shadow .3s}
 .app:active{transform:scale(.99)}
 .app:hover{border-color:rgba(139,92,246,.6);transform:translateY(-2px)}
 .app.scanned{border-color:#C4B5FD;box-shadow:0 0 0 1px rgba(196,181,253,.7),0 0 34px rgba(139,92,246,.35)}
-.body{flex:1;min-width:0;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.name{font-weight:700;font-size:clamp(17px,4.4vw,22px);letter-spacing:.06em;text-transform:uppercase;color:var(--lav)}
-.chip{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;padding:4px 9px;border:1px solid var(--edge);border-radius:8px;color:var(--violet);text-transform:uppercase}
+.body{flex:1;min-width:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.name{font-weight:700;font-size:clamp(15px,4vw,20px);letter-spacing:.06em;text-transform:uppercase;color:var(--lav)}
+.chip{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;padding:3px 8px;border:1px solid var(--edge);border-radius:8px;color:var(--violet);text-transform:uppercase}
 .chip.green{color:var(--live);border-color:rgba(61,220,151,.4)}
-.right{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.right{display:flex;align-items:center}
 @keyframes spin{to{transform:rotate(360deg)}}
-.share-btn{width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(139,92,246,.35);background:rgba(139,92,246,.08);cursor:pointer;flex-shrink:0;animation:spin 5s linear infinite}
-footer{position:relative;z-index:1;text-align:center;padding:26px 20px 44px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;color:var(--ink-dim);text-transform:uppercase}
+.share-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(139,92,246,.35);background:rgba(139,92,246,.08);cursor:pointer;flex-shrink:0;animation:spin 5s linear infinite}
+footer{position:relative;z-index:1;text-align:center;padding:8px 20px 12px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.28em;color:var(--ink-dim);text-transform:uppercase;flex:0 0 auto}
 footer b{color:var(--violet)}
 @media(prefers-reduced-motion:reduce){#scanline{display:none}.app,.app:hover{transition:none;transform:none}}
 `;
@@ -247,7 +247,6 @@ export default function ApexNodeLink() {
         <div className="eyebrow">THE</div>
         <h1>APEX NODE</h1>
         <div className="hub">HUB</div>
-        <p className="tagline">Arsenal numérique privé · Zéro trace · Total contrôle</p>
         <div className="divider"></div>
       </header>
 
