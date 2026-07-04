@@ -37,13 +37,13 @@ header{position:relative;z-index:1;text-align:center;padding:16px 0 10px;flex:0 
 h1{margin-top:6px;font-weight:700;font-size:clamp(36px,9.5vw,80px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
 .hub{margin-top:4px;font-weight:500;font-size:clamp(16px,4vw,28px);letter-spacing:.6em;text-indent:.6em;color:var(--violet);text-shadow:0 2px 12px rgba(13,10,26,.9)}
 .divider{margin:10px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
-main{position:relative;z-index:1;width:100%;max-width:820px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;gap:8px;flex:1;justify-content:center}
-.app{display:flex;align-items:center;gap:14px;padding:14px 18px;background:var(--bg-card);border:1px solid var(--edge);border-radius:16px;backdrop-filter:blur(10px);text-decoration:none;color:inherit;transition:border-color .3s,transform .3s,box-shadow .3s}
+main{position:relative;z-index:1;width:100%;max-width:820px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;gap:10px;flex:1}
+.app{display:flex;align-items:center;gap:18px;padding:0 22px;background:var(--bg-card);border:1px solid var(--edge);border-radius:18px;backdrop-filter:blur(10px);text-decoration:none;color:inherit;transition:border-color .3s,box-shadow .3s;flex:1}
 .app:active{transform:scale(.99)}
 .app:hover{border-color:rgba(139,92,246,.6);transform:translateY(-2px)}
 .app.scanned{border-color:#C4B5FD;box-shadow:0 0 0 1px rgba(196,181,253,.7),0 0 34px rgba(139,92,246,.35)}
 .body{flex:1;min-width:0;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
-.name{font-weight:700;font-size:clamp(15px,4vw,20px);letter-spacing:.06em;text-transform:uppercase;color:var(--lav)}
+.name{font-weight:700;font-size:clamp(17px,4.4vw,22px);letter-spacing:.06em;text-transform:uppercase;color:var(--lav)}
 .chip{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.16em;padding:3px 8px;border:1px solid var(--edge);border-radius:8px;color:var(--violet);text-transform:uppercase}
 .chip.green{color:var(--live);border-color:rgba(61,220,151,.4)}
 .right{display:flex;align-items:center}
