@@ -37,7 +37,7 @@ header{position:relative;z-index:1;text-align:center;padding:16px 0 10px;flex:0 
 h1{margin-top:6px;font-weight:700;font-size:clamp(36px,9.5vw,80px);letter-spacing:.08em;line-height:1;background:linear-gradient(100deg,var(--lav) 15%,var(--blue) 85%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 14px rgba(13,10,26,.9))}
 .hub{margin-top:4px;font-weight:500;font-size:clamp(16px,4vw,28px);letter-spacing:.6em;text-indent:.6em;color:var(--violet);text-shadow:0 2px 12px rgba(13,10,26,.9)}
 .divider{margin:10px auto 0;width:min(86%,760px);height:1px;background:linear-gradient(90deg,transparent,rgba(139,92,246,.55),rgba(79,156,249,.55),transparent);box-shadow:0 0 24px rgba(139,92,246,.35)}
-main{position:relative;z-index:1;width:100%;max-width:820px;margin:0 auto;padding:10px 16px;display:flex;flex-direction:column;justify-content:space-evenly;flex:1}
+main{position:relative;z-index:1;width:100%;max-width:820px;margin:0 auto;padding:12px 16px;display:flex;flex-direction:column;justify-content:center;gap:10px;flex:1}
 .app{display:flex;align-items:center;gap:18px;padding:22px;background:var(--bg-card);border:1px solid var(--edge);border-radius:18px;backdrop-filter:blur(10px);text-decoration:none;color:inherit;transition:border-color .3s,box-shadow .3s}
 .app:active{transform:scale(.99)}
 .app:hover{border-color:rgba(139,92,246,.6);transform:translateY(-2px)}
